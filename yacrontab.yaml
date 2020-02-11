@@ -1,0 +1,17 @@
+defaults:
+  environment:
+    - key: PYTHONIOENCODING
+      value: utf-8
+
+jobs:
+  - name: scrapy
+    command: > 
+        scrapy crawl immoscout -o apartments_$(date +"%Y%m%dT%H%M%S").csv 
+        -s FROM=${FROM}
+        -s TO=${TO}
+        -s SENDGRID_API_KEY=${SENDGRID_API_KEY}
+        -s LOG_LEVEL=INFO
+        -a url=${URL}  
+    schedule: "*/10 * * * *"
+    captureStdout: true
+

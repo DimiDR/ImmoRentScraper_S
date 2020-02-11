@@ -1,0 +1,4 @@
+scrapy==1.8.0
+requests==2019.4.13
+googlemaps
+#Only Python 3.6
